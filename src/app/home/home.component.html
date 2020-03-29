@@ -1,0 +1,27 @@
+<div class="page" cdkDropListGroup>
+    <div class="tableau" >
+        <div class="titre">tableau 1</div>
+        <div cdkDropList
+        [cdkDropListData]="data" class="content" (cdkDropListDropped)="onDrop($event)">
+            <div class="data" *ngFor="let data of data" cdkDrag>{{data}}</div>
+        </div>
+    </div>
+    <div class="tableau">
+        <div class="titre">groupe de tableau</div>
+        <div class="content">
+            <div class="tableau-group" *ngFor="let group of groupOfData">
+                <div class="groupe-titre">
+                    <div>{{group.name}}</div>
+                    <button type="button" class="btn btn-danger" (click)="onClickRemove(group)">x</button>
+                </div>
+                <div cdkDropList [cdkDropListData]="group.data" class="content-group" (cdkDropListDropped)="onDrop($event)">
+                    <div class="data" *ngFor="let data of group.data" cdkDrag>{{data}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block-btn">
+    <button type="button" class="btn btn-secondary" (click)="onClickSend()">Envoyer</button>
+    <button type="button" class="btn btn-success" (click)="onClickCreate()">ajouter un groupe</button>
+</div>
