@@ -19,7 +19,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 …
 @NgModule ({....
   imports: [...,
-  MatSliderModule,
+  DragDropModule,
 …]
 })
 ```
